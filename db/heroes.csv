@@ -1,4 +1,4 @@
-id,name,localized_name,primary_attr,attack_type,roles/0,roles/1,roles/2,legs,roles/3,roles/4,roles/5
+id,name,localized_name,primary_attr,attack_type,roles0,roles1,roles2,legs,roles3,roles4,roles5
 1,npc_dota_hero_antimage,Anti-Mage,agi,Melee,Carry,Escape,Nuker,2,,,
 2,npc_dota_hero_axe,Axe,str,Melee,Initiator,Durable,Disabler,2,Jungler,,
 3,npc_dota_hero_bane,Bane,int,Ranged,Support,Disabler,Nuker,4,Durable,,

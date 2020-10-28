@@ -1,6 +1,5 @@
 class Hero < ApplicationRecord
-
-  validates :id, :name, :localized_name, :primary_attr, :attack_type, :roles/0, :roles/1, :roles/2, :legs, :roles/3, :roles/4, :roles/5
-  validates :id, :name, :localized_name, uniqueness:true
-  validates :id, :legs,  numericality: { only_integer:true }
+  validates :name, :localized_name, :primary_attr, :attack_type, :roles0, :roles1, :roles2, :legs, :roles3, :roles4, :roles5
+  validates :name, :localized_name, uniqueness:true
+  validates :legs,  numericality: { only_integer:true }
 end
