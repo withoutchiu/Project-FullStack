@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: MyString
+  localized_name: MyString
+  primary_attr: MyString
+  attack_type: MyString
+  role/0: MyString
+  roles/1: MyString
+  roles/2: MyString
+  legs: 1
+  roles/3: 
+  roles/4: MyString
+  roles/5: MyString
+
+two:
+  id: 1
+  name: MyString
+  localized_name: MyString
+  primary_attr: MyString
+  attack_type: MyString
+  role/0: MyString
+  roles/1: MyString
+  roles/2: MyString
+  legs: 1
+  roles/3: 
+  roles/4: MyString
+  roles/5: MyString
