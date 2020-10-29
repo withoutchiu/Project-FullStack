@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_041453) do
+ActiveRecord::Schema.define(version: 2020_10_29_041723) do
+
+  create_table "heros", force: :cascade do |t|
+    t.string "name"
+    t.string "localized_name"
+    t.integer "primary_attr_id"
+    t.string "attack_type"
+    t.integer "legs"
+    t.integer "primary_attribute_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["primary_attribute_id"], name: "index_heros_on_primary_attribute_id"
+  end
 
   create_table "primary_attributes", force: :cascade do |t|
     t.string "name"
@@ -18,4 +30,5 @@ ActiveRecord::Schema.define(version: 2020_10_29_041453) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "heros", "primary_attributes"
 end

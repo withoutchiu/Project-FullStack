@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  localized_name: MyString
+  primary_attr_id: 1
+  attack_type: MyString
+  legs: 1
+  primary_attribute: one
+
+two:
+  name: MyString
+  localized_name: MyString
+  primary_attr_id: 1
+  attack_type: MyString
+  legs: 1
+  primary_attribute: two
