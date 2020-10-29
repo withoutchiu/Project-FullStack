@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_043016) do
+ActiveRecord::Schema.define(version: 2020_10_29_224740) do
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
@@ -29,5 +29,35 @@ ActiveRecord::Schema.define(version: 2020_10_29_043016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "stats", force: :cascade do |t|
+    t.string "img"
+    t.string "icon"
+    t.integer "base_health"
+    t.integer "base_health_regen"
+    t.integer "base_mana"
+    t.integer "base_mana_regen"
+    t.integer "base_armor"
+    t.integer "base_mr"
+    t.integer "base_attack_min"
+    t.integer "base_attack_max"
+    t.integer "base_str"
+    t.integer "base_agi"
+    t.integer "base_int"
+    t.integer "str_gain"
+    t.integer "agi_gain"
+    t.integer "int_gain"
+    t.integer "attack_range"
+    t.integer "projectile_speed"
+    t.integer "attack_rate"
+    t.integer "move_speed"
+    t.integer "turn_rate"
+    t.string "cm_enabled"
+    t.integer "heroes_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["heroes_id"], name: "index_stats_on_heroes_id"
+  end
+
   add_foreign_key "heros", "primary_attributes"
+  add_foreign_key "stats", "heroes", column: "heroes_id"
 end
