@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_185855) do
+ActiveRecord::Schema.define(version: 2020_10_29_024443) do
 
-  create_table "heros", force: :cascade do |t|
-    t.string "name"
-    t.string "localized_name"
-    t.string "primary_attr"
-    t.string "attack_type"
-    t.string "roles0"
-    t.string "roles1"
-    t.string "roles2"
-    t.integer "legs"
-    t.string "roles3"
-    t.string "roles4"
-    t.string "roles5"
+  create_table "hero_roles", force: :cascade do |t|
+    t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

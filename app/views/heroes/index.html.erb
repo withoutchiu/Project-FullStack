@@ -1,6 +1,22 @@
 <h1>Heroes</h1>
 <ul>
-  <% @heros.each do |hero| %>
+  <% @hero.each do |hero| %>
     <li><%= hero.name %></li>
+    <li><%= hero.localized_name %></li>
+  <% end %>
+</ul>
+
+<h1>Heroes_Role</h1>
+<ul>
+  <% @hero_roles.each do |x| %>
+    <li><%= x.heroId %></li>
+    <li><%= x.rolesId %></li>
+  <% end %>
+</ul>
+
+<h1>Role</h1>
+<ul>
+  <% @roles.each do |x| %>
+    <li><%= x.name %></li>
   <% end %>
 </ul>
