@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Project | Dota API</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://1000logos.net/wp-content/uploads/2019/03/Dota-2-Logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+    </div>
+  </div>
+</nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+      Dota2 Heroes API | Gilbert Gulliver Chiu PROJECT
+      </h1>
+      <%= yield %>
+      <hr/>
+      <p class="subtitle">
+        This website was create with <strong>Bulma</strong>!
+      </p>
+    </div>
+  </section>
+
   </body>
 </html>

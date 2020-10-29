@@ -1,11 +1,44 @@
-<h1>Heroes</h1>
-<ul>
+<h3 class="title is-4">Heroes List</h3>
+<!--<ul>
   <% @heroes.each do |hero| %>
     <li><%= hero.name %></li>
     <li><%= hero.localized_name %></li>
   <% end %>
-</ul>
+</ul>-->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Localized Name</th>
+      <th>Name</th>
+      <th>Attack Type</th>
+      <th>Legs</th>
+      <th>Primary Attribute<th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Localized Name</th>
+      <th>Attack Type</th>
+      <th>Legs</th>
+      <th>Primary Attribute<th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @heroes.each do |hero| %>
+    <tr>
+      <td><%= hero.localized_name %></th>
+      <td><%= hero.name %></th>
+      <td><%= hero.attack_type %></th>
+      <td><%= hero.legs %></th>
+      <td><%= hero.primary_attribute_id %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <div>
-  <%= link_to "Next Page", heroes_path(page: @page - 1)%>
+  <%= link_to "Previous Page", heroes_path(page: @page - 1)%>
   <%= link_to "Next Page", heroes_path(page: @page + 1)%>
 </div>
