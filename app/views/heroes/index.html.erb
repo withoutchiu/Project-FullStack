@@ -32,7 +32,15 @@
       <td><%= hero.name %></th>
       <td><%= hero.attack_type %></th>
       <td><%= hero.legs %></th>
-      <td><%= hero.primary_attribute_id %></th>
+      <% if(hero.primary_attribute_id == 8) %>
+        <td>Agility</th>
+      <% end %>
+      <% if(hero.primary_attribute_id == 9) %>
+        <td>Strength</th>
+      <% end %>
+      <% if(hero.primary_attribute_id == 10) %>
+        <td>Intelligence</th>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

@@ -3,10 +3,12 @@ class HeroesController < ApplicationController
   def index
     @page = params.fetch(:page, 0).to_i
     @heroes = Hero.offset(@page * HERO_PER_PAGE).limit(HERO_PER_PAGE)
+
   end
   #The @heroes variable will be share with:
   #app/voews/heroes/index.html.erb
 
   def show
+
   end
 end

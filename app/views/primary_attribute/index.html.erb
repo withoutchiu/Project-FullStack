@@ -1,2 +1,26 @@
-<h1>PrimaryAttribute#index</h1>
-<p>Find me in app/views/primary_attribute/index.html.erb</p>
+<h3 class="title is-4">Primary Attribute List</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Hero Count</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Attribute</th>
+      <th>Hero Count</th>
+      <th>Action</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @primary_attributes.each do |attr| %>
+    <tr>
+      <td><%= attr.name %></th>
+      <td><%= Hero.where("primary_attribute_id = #{attr.id}").count%></th>
+      <td><%= link_to "View All Hero", "primary_attribute/#{attr.id}" %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

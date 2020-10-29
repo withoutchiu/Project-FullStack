@@ -1,2 +1,40 @@
 <h1>PrimaryAttribute#show</h1>
-<p>Find me in app/views/primary_attribute/show.html.erb</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Localized Name</th>
+      <th>Name</th>
+      <th>Attack Type</th>
+      <th>Legs</th>
+      <th>Primary Attribute<th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Localized Name</th>
+      <th>Attack Type</th>
+      <th>Legs</th>
+      <th>Primary Attribute<th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @hero_based_on_attribute.each do |hero| %>
+    <tr>
+      <td><%= hero.localized_name %></th>
+      <td><%= hero.name %></th>
+      <td><%= hero.attack_type %></th>
+      <td><%= hero.legs %></th>
+      <% if(hero.primary_attribute_id == 8) %>
+        <td>Agility</th>
+      <% end %>
+      <% if(hero.primary_attribute_id == 9) %>
+        <td>Strength</th>
+      <% end %>
+      <% if(hero.primary_attribute_id == 10) %>
+        <td>Intelligence</th>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
