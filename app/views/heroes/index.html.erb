@@ -1,22 +1,11 @@
 <h1>Heroes</h1>
 <ul>
-  <% @hero.each do |hero| %>
+  <% @heroes.each do |hero| %>
     <li><%= hero.name %></li>
     <li><%= hero.localized_name %></li>
   <% end %>
 </ul>
-
-<h1>Heroes_Role</h1>
-<ul>
-  <% @hero_roles.each do |x| %>
-    <li><%= x.heroId %></li>
-    <li><%= x.rolesId %></li>
-  <% end %>
-</ul>
-
-<h1>Role</h1>
-<ul>
-  <% @roles.each do |x| %>
-    <li><%= x.name %></li>
-  <% end %>
-</ul>
+<div>
+  <%= link_to "Next Page", heroes_path(page: @page - 1)%>
+  <%= link_to "Next Page", heroes_path(page: @page + 1)%>
+</div>

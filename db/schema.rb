@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_041723) do
+ActiveRecord::Schema.define(version: 2020_10_29_043016) do
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
     t.string "localized_name"
-    t.integer "primary_attr_id"
     t.string "attack_type"
     t.integer "legs"
     t.integer "primary_attribute_id", null: false

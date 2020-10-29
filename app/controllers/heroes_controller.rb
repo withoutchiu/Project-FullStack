@@ -1,8 +1,8 @@
 class HeroesController < ApplicationController
+  HERO_PER_PAGE = 10
   def index
-    @hero = Hero.all
-    @hero_roles = HeroRole.all
-    @roles = RoleSecond.all
+    @page = params.fetch(:page, 0).to_i
+    @heroes = Hero.offset(@page * HERO_PER_PAGE).limit(HERO_PER_PAGE)
   end
   #The @heroes variable will be share with:
   #app/voews/heroes/index.html.erb
