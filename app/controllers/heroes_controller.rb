@@ -11,4 +11,9 @@ class HeroesController < ApplicationController
   def show
 
   end
+
+  def search
+    wildcard_search = "%#{params[:keywords]}%"
+    @heroes_searched = Hero.where("localized_name LIKE ?", wildcard_search)
+  end
 end

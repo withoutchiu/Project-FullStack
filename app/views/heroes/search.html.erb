@@ -1,4 +1,4 @@
-<h1 class="title is-4">View hero based on <%= PrimaryAttribute.find(params[:id]).name%></h1>
+<h1 class="title">Heroes found when searching for: <%= params[:keyword] %></h1>
 <table class="table">
   <thead>
     <tr>
@@ -9,17 +9,8 @@
       <th>Primary Attribute<th>
     </tr>
   </thead>
-  <tfoot>
-    <tr>
-      <th>Name</th>
-      <th>Localized Name</th>
-      <th>Attack Type</th>
-      <th>Legs</th>
-      <th>Primary Attribute<th>
-    </tr>
-  </tfoot>
   <tbody>
-    <% @hero_based_on_attribute.each do |hero| %>
+    <% @heroes_searched.each do |hero| %>
     <tr>
       <td><%= hero.localized_name %></th>
       <td><%= hero.name %></th>
@@ -38,8 +29,3 @@
     <% end %>
   </tbody>
 </table>
-<div>
-
-<div class="navbar-item">
-  <%= link_to "Go Back", primary_attribute_index_path %>
-</div>
