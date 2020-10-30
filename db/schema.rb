@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_010937) do
+ActiveRecord::Schema.define(version: 2020_10_30_030920) do
+
+  create_table "hero_roles", force: :cascade do |t|
+    t.integer "hero_id", null: false
+    t.integer "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hero_id"], name: "index_hero_roles_on_hero_id"
+    t.index ["role_id"], name: "index_hero_roles_on_role_id"
+  end
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
@@ -51,5 +60,13 @@ ActiveRecord::Schema.define(version: 2020_10_30_010937) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "hero_roles", "heros"
+  add_foreign_key "hero_roles", "roles"
   add_foreign_key "heros", "primary_attributes"
 end

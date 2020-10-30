@@ -1,5 +1,7 @@
 require "csv"
 
+HeroRole.delete_all
+Role.delete_all
 Hero.delete_all
 PrimaryAttribute.delete_all
 
@@ -17,17 +19,46 @@ heroes = CSV.parse(csv_data, headers: true, encoding: "UTF-8")
 stats = CSV.parse(csv_data_stats, headers: true, encoding: "UTF-8")
 
 
-heroes.each do |hero|
+heroes[0...9].each do |hero|
   primary_attribute = PrimaryAttribute.find_or_create_by(name: hero["primary_attr"])
   if primary_attribute&.valid?
     xhero = primary_attribute.heroes.create(
-      name: hero["name"],
+      name:           hero["name"],
       localized_name: hero["localized_name"],
-      attack_type: hero["attack_type"],
-      legs: hero["legs"]
+      attack_type:    hero["attack_type"],
+      legs:           hero["legs"]
     )
 
-    puts "Invalid Hero #{hero['localized_name']}" unless xhero&.valid?
+    unless xhero&.valid?
+      puts "Invalid Hero #{hero['localized_name']}"
+      next
+    end
+
+    rolesConcat = "";
+
+    if(hero["roles0"] != nil)
+      rolesConcat += hero["roles0"] + ","
+    end
+    if(hero["roles1"] != nil)
+      rolesConcat += hero["roles1"] + ","
+    end
+    if(hero["roles2"] != nil)
+      rolesConcat += hero["roles2"] + ","
+    end
+    if(hero["roles3"] != nil)
+      rolesConcat += hero["roles3"] + ","
+    end
+    if(hero["roles4"] != nil)
+      rolesConcat += hero["roles4"] + ","
+    end
+    if(hero["roles5"] != nil)
+      rolesConcat += hero["roles5"] + ","
+    end
+
+    rolesConcat.split(",").map(&:strip).each do |role_each|
+      role = Role.find_or_create_by(name: role_each)
+      HeroRole.create(hero: xhero, role: role)
+    end
   else
     puts "Invalid hero role #{hero["roles0"]} for Hero #{hero["localized_name"]}."
   end
@@ -63,3 +94,7 @@ end
 puts "Created #{PrimaryAttribute.count} attribute."
 
 puts "Created #{Hero.count} hero."
+
+puts "Created #{Role.count} roles."
+
+puts "Created #{HeroRole.count} hero roles."
