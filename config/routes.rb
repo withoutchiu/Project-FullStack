@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       end
   end
   resources :primary_attribute, only: [:index, :show]
+  resources :about
 
   root to:"welcome#index"
 end
