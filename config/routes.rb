@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'about/index'
   resources :welcome
   resources :heroes, only: [:index, :show] do
       collection do

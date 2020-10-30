@@ -28,11 +28,11 @@
   <tbody>
     <% @heroes.each do |hero| %>
     <tr>
-      <td><%= hero.localized_name %></th>
+      <td><%= link_to hero.localized_name, hero%></th>
       <td><%= hero.name %></th>
       <td><%= hero.attack_type %></th>
       <td><%= hero.legs %></th>
-      <td><%= PrimaryAttribute.where("id = #{hero.primary_attribute_id}").name%></td>
+      <td><%= PrimaryAttribute.where("id = #{hero.primary_attribute_id}").first.name%></td>
     </tr>
     <% end %>
   </tbody>

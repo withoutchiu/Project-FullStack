@@ -1,8 +1,53 @@
-<h1>Heroes <%= @hero.name %></h1>
-<ol>
-    <%= @hero.name %>
-    <%= @hero.localized_name %>
-    <%= @hero.img %>
-</ol>
+<h1 class="title is-4"> <%= @hero.localized_name %> Description</h1>
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-2by1">
+      <img src="http://cdn.dota2.com<%= @hero.img %>" alt="Hero Image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="http://cdn.dota2.com<%= @hero.icon %>" alt="Hero icon">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= @hero.localized_name %></p>
+        <p class="subtitle is-6"><%= @hero.name %></p>
+      </div>
+    </div>
+
+    <div class="content">
+      <b>Attack Type:</b> <%= @hero.attack_type %><br>
+      <b>Legs:</b> <%= @hero.legs %><br>
+      <b>Primary Attribute:</b> <%= PrimaryAttribute.where("id = #{@hero.primary_attribute_id}").first.name %><br>
+      <b>Base Health:</b> <%= @hero.base_health %><br>
+      <b>Base Health Regen:</b> <%= @hero.base_health_regen %><br>
+      <b>Base Mana:</b> <%= @hero.base_mana %><br>
+      <b>Base Mana Regen:</b> <%= @hero.base_mana_regen %><br>
+      <b>Base Armor:</b> <%= @hero.base_armor %><br>
+      <b>Base Movement Rate:</b> <%= @hero.base_mr %><br>
+      <b>Base Attack Min:</b> <%= @hero.base_attack_min %><br>
+      <b>Base Attack Max:</b> <%= @hero.base_attack_max %><br>
+      <b>Base Str:</b> <%= @hero.base_str %><br>
+      <b>Base Agi:</b> <%= @hero.base_agi %><br>
+      <b>Base Int:</b> <%= @hero.base_int %><br>
+      <b>Str Gain:</b> <%= @hero.str_gain %><br>
+      <b>Agi Gain:</b> <%= @hero.agi_gain %><br>
+      <b>Int Gain:</b> <%= @hero.int_gain %><br>
+      <b>Projectile Speed:</b> <%= @hero.projectile_speed %><br>
+      <b>Attack Rate:</b> <%= @hero.attack_rate %><br>
+      <b>Move Speed:</b> <%= @hero.move_speed %><br>
+      <b>Turn:</b> <%= @hero.turn_rate %><br>
+      <b>CM Enable:</b> <%= @hero.cm_enabled %><br>
+
+    </div>
+  </div>
+</div>
+
+<div class="navbar-item">
+  <%= link_to "Back to Heroes", heroes_path %>
+</div>
 
 
