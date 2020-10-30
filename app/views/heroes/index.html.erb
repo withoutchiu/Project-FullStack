@@ -13,6 +13,7 @@
       <th>Name</th>
       <th>Attack Type</th>
       <th>Legs</th>
+      <th>Roles</th>
       <th>Primary Attribute<th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
       <th>Localized Name</th>
       <th>Attack Type</th>
       <th>Legs</th>
+      <th>Roles</th>
       <th>Primary Attribute<th>
     </tr>
   </tfoot>
@@ -32,6 +34,7 @@
       <td><%= hero.name %></th>
       <td><%= hero.attack_type %></th>
       <td><%= hero.legs %></th>
+      <td><%= hero.roles_list %></th>
       <td><%= PrimaryAttribute.where("id = #{hero.primary_attribute_id}").first.name%></td>
     </tr>
     <% end %>

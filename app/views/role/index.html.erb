@@ -1,0 +1,19 @@
+<h3 class="title is-4">Role List</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Hero Count</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @roles.each do |attr| %>
+    <tr>
+      <td><%= attr.name %></th>
+      <td><%= HeroRole.where("role_id = #{attr.id}").count%></th>
+      <td><%= link_to "View All Hero", "#{attr.id}" %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -6,4 +6,7 @@ class Hero < ApplicationRecord
   validates :name, :localized_name, uniqueness:true
   validates :legs, numericality:{only_integer:true}
 
+  def roles_list
+      roles.map(&:name).join(", ")
+  end
 end

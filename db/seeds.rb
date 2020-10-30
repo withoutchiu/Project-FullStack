@@ -19,7 +19,7 @@ heroes = CSV.parse(csv_data, headers: true, encoding: "UTF-8")
 stats = CSV.parse(csv_data_stats, headers: true, encoding: "UTF-8")
 
 
-heroes[0...9].each do |hero|
+heroes.each do |hero|
   primary_attribute = PrimaryAttribute.find_or_create_by(name: hero["primary_attr"])
   if primary_attribute&.valid?
     xhero = primary_attribute.heroes.create(

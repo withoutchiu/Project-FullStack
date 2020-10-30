@@ -1,20 +1,26 @@
-<h1 class="title">Heroes found when searching for: <%= params[:keyword] %></h1>
+<h1 class="title is-4">Heroes with <%= Role.find(params[:id]).name%> Role</h1>
 <table class="table">
   <thead>
     <tr>
       <th>Localized Name</th>
       <th>Name</th>
       <th>Attack Type</th>
-      <th>Roles</th>
       <th>Primary Attribute<th>
     </tr>
   </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Localized Name</th>
+      <th>Roles</th>
+      <th>Primary Attribute<th>
+    </tr>
+  </tfoot>
   <tbody>
-    <% @heroes_searched.each do |hero| %>
+    <% @hero_based_on_role.each do |hero| %>
     <tr>
       <td><%= link_to hero.localized_name, hero%></th>
       <td><%= hero.name %></th>
-      <td><%= hero.attack_type %></th>
       <td><%= hero.roles_list %></th>
       <td><%= PrimaryAttribute.where("id = #{hero.primary_attribute_id}").first.name%></td>
     </tr>

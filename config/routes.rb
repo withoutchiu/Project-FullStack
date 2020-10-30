@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'role/index'
+  get 'role/show'
   get 'about/index'
   resources :welcome
   resources :heroes, only: [:index, :show] do
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :primary_attribute, only: [:index, :show]
   resources :about
+  resources :role, only: [:index, :show]
 
   root to:"welcome#index"
 end
