@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_224740) do
+ActiveRecord::Schema.define(version: 2020_10_30_010937) do
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
@@ -20,16 +20,6 @@ ActiveRecord::Schema.define(version: 2020_10_29_224740) do
     t.integer "primary_attribute_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["primary_attribute_id"], name: "index_heros_on_primary_attribute_id"
-  end
-
-  create_table "primary_attributes", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "stats", force: :cascade do |t|
     t.string "img"
     t.string "icon"
     t.integer "base_health"
@@ -52,12 +42,14 @@ ActiveRecord::Schema.define(version: 2020_10_29_224740) do
     t.integer "move_speed"
     t.integer "turn_rate"
     t.string "cm_enabled"
-    t.integer "heroes_id", null: false
+    t.index ["primary_attribute_id"], name: "index_heros_on_primary_attribute_id"
+  end
+
+  create_table "primary_attributes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["heroes_id"], name: "index_stats_on_heroes_id"
   end
 
   add_foreign_key "heros", "primary_attributes"
-  add_foreign_key "stats", "heroes", column: "heroes_id"
 end

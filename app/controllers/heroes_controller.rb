@@ -9,7 +9,7 @@ class HeroesController < ApplicationController
   #app/voews/heroes/index.html.erb
 
   def show
-
+    @hero =Hero.find(params[:id])
   end
 
   def search

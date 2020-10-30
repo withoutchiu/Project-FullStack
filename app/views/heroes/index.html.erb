@@ -32,15 +32,7 @@
       <td><%= hero.name %></th>
       <td><%= hero.attack_type %></th>
       <td><%= hero.legs %></th>
-      <% if(hero.primary_attribute_id == 8) %>
-        <td>Agility</th>
-      <% end %>
-      <% if(hero.primary_attribute_id == 9) %>
-        <td>Strength</th>
-      <% end %>
-      <% if(hero.primary_attribute_id == 10) %>
-        <td>Intelligence</th>
-      <% end %>
+      <td><%= PrimaryAttribute.where("id = #{hero.primary_attribute_id}").name%></td>
     </tr>
     <% end %>
   </tbody>

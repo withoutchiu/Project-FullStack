@@ -1,2 +1,8 @@
-<h1>Heroes#show</h1>
-<p>Find me in app/views/heroes/show.html.erb</p>
+<h1>Heroes <%= @hero.name %></h1>
+<ol>
+    <%= @hero.name %>
+    <%= @hero.localized_name %>
+    <%= @hero.img %>
+</ol>
+
+
